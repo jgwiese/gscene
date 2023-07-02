@@ -9,7 +9,8 @@
 namespace scene {
     class t_camera: public t_scene_object {
     public:
-        t_camera(unsigned int width, unsigned int height, unsigned int mesh_id, t_material *p_material, glm::mat4 intrinsics, glm::mat4 extrinsics);
+        glm::vec3 direction, up;
+        t_camera(unsigned int width, unsigned int height, t_object *p_object, glm::mat4 intrinsics, glm::mat4 extrinsics);
         t_image_sensor *get_image_sensor();
         int get_width();
         int get_height();
@@ -20,8 +21,6 @@ namespace scene {
         void translate(glm::vec3 translation);
 
     private:
-        glm::vec3 direction, up;
-        unsigned int mesh_id;
         glm::mat4 intrinsics, extrinsics, projection;
         t_image_sensor *p_image_sensor;
     };

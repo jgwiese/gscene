@@ -3,9 +3,8 @@
 
 #include <unordered_map>
 #include <glm/glm.hpp>
-#include <cppassets/cppassets.h>
+#include <gassets/gassets.h>
 #include "definitions.h"
-#include "material.h"
 
 
 namespace scene {
@@ -22,6 +21,7 @@ namespace scene {
         void scale(glm::vec3 values);
         void set_node(t_scene_node *p_scene_node);
         t_scene_node *get_node();
+        t_object *get_object();
         std::vector<std::tuple<t_mesh *, t_material *>> *get_mesh_material();
         bool hidden;
 

@@ -1,7 +1,7 @@
 #ifndef DEFINITIONS_H
 #define DEFINITIONS_H
 
-#include <cpptree/tree.h>
+#include <gtree/gtree.h>
 
 
 namespace scene {

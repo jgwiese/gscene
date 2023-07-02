@@ -1,4 +1,4 @@
-NAME=cppscene
+NAME=gscene
 TARGET := lib$(NAME).a
 BUILDDIR := build
 SOURCEDIR := src

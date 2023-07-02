@@ -4,13 +4,12 @@
 
 
 namespace scene {
-    t_camera::t_camera(unsigned int width, unsigned int height, unsigned int mesh_id, t_material *p_material, glm::mat4 intrinsics, glm::mat4 extrinsics) : t_scene_object(mesh_id, p_material) {
+    t_camera::t_camera(unsigned int width, unsigned int height, t_object *p_object, glm::mat4 intrinsics, glm::mat4 extrinsics) : t_scene_object(p_object) {
         this->intrinsics = intrinsics;
         this->extrinsics = extrinsics;
         this->projection = this->intrinsics * this->extrinsics;
         this->direction = glm::vec3(0.0f, 0.0f, -1.0f);
         this->up = glm::vec3(0.0f, 1.0f, 0.0f);
-        this->mesh_id = mesh_id;
         this->p_image_sensor = new t_image_sensor(width, height, 4); // TODO: how to make this general for the amounts of channels?
         /*
          * TODO: for now the intrinsics resembles the projection matrix and will be adapted later to be fully controllable manually by parameters

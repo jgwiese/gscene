@@ -1,7 +1,7 @@
 #ifndef IMAGE_SENSOR_H
 #define IMAGE_SENSOR_H
 
-#include <cppassets/cppassets.h>
+#include <gassets/gassets.h>
 #include "image.h"
 
 

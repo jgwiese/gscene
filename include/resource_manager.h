@@ -1,7 +1,7 @@
 #ifndef RESOURCE_MANAGER_H
 #define RESOURCE_MANAGER_H
 
-#include <cppassets/cppassets.h>
+#include <gassets/gassets.h>
 #include <vector>
 
 
