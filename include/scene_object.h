@@ -35,4 +35,3 @@ namespace scene {
 }
 
 #endif // SCENE_OBJECT_H
-
