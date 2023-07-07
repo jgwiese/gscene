@@ -5,7 +5,7 @@
 
 
 namespace scene {
-class t_pointlight : t_light {
+class t_pointlight : public t_light {
 public:
     t_pointlight();
     ~t_pointlight();
