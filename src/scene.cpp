@@ -41,7 +41,9 @@ std::vector<scene::t_scene_object *> *t_scene::add_scene_object(t_scene_object *
         std::cout << p_import_object->get_objects()->at(i)->get_name() << std::endl;
         t_scene_object *p_scene_object = new t_scene_object(p_import_object->get_objects()->at(i));
         result->push_back(p_scene_object);
+        // TODO: not the best way to set the node of the scene object afterwards somehow?
         t_scene_node *p_child = new t_scene_node(p_scene_object);
+        p_scene_object->set_node(p_child);
         if (p_parent == NULL) {
             this->p_root->add_child(p_child);
         }
