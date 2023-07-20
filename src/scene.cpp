@@ -9,15 +9,18 @@ t_scene::t_scene() {
     this->p_resource_manager = new t_resource_manager();
 }
 
-t_camera *t_scene::add_camera(t_scene_object *parent, t_camera *camera) {
+t_camera *t_scene::add_camera(t_scene_object *p_parent, t_camera *p_camera) {
+    /*
     if (parent == NULL) {
         this->p_root->add_child(new t_scene_node(camera));
     }
     else {
         parent->get_node()->add_child(new t_scene_node(camera));
     }
-    this->v_cameras.push_back(camera);
-    return camera;
+    */
+    this->add_scene_object(p_parent, p_camera);
+    this->v_cameras.push_back(p_camera);
+    return p_camera;
 }
 
 t_scene_object *t_scene::add_scene_object(t_scene_object *p_parent, t_scene_object *p_scene_object) {
