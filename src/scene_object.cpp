@@ -62,7 +62,7 @@ namespace scene {
         return this->p_object;
     }
 
-    std::vector<std::tuple<t_mesh *, t_material *>> *t_scene_object::get_mesh_material() {
+    std::vector<std::tuple<t_mesh *, assets::t_material *>> *t_scene_object::get_mesh_material() {
         return this->p_object->get_mesh_material();
     }
 }

@@ -2,7 +2,6 @@
 #define IMAGE_SENSOR_H
 
 #include <gassets/gassets.h>
-#include "image.h"
 
 
 namespace scene {

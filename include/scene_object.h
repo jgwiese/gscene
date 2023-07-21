@@ -22,7 +22,7 @@ namespace scene {
         void set_node(t_scene_node *p_scene_node);
         t_scene_node *get_node();
         t_object *get_object();
-        std::vector<std::tuple<t_mesh *, t_material *>> *get_mesh_material();
+        std::vector<std::tuple<t_mesh *, assets::t_material *>> *get_mesh_material();
         bool hidden;
 
     private:
