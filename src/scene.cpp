@@ -10,17 +10,15 @@ t_scene::t_scene() {
 }
 
 t_camera *t_scene::add_camera(t_scene_object *p_parent, t_camera *p_camera) {
-    /*
-    if (parent == NULL) {
-        this->p_root->add_child(new t_scene_node(camera));
-    }
-    else {
-        parent->get_node()->add_child(new t_scene_node(camera));
-    }
-    */
     this->add_scene_object(p_parent, p_camera);
     this->v_cameras.push_back(p_camera);
     return p_camera;
+}
+
+t_light *t_scene::add_light(t_scene_object *p_parent, t_light *p_light) {
+    this->add_scene_object(p_parent, p_light);
+    this->v_lights.push_back(p_light);
+    return p_light;
 }
 
 t_scene_object *t_scene::add_scene_object(t_scene_object *p_parent, t_scene_object *p_scene_object) {
@@ -64,5 +62,9 @@ t_scene_node *t_scene::get_tree() {
 
 std::vector<t_camera *> *t_scene::get_cameras() {
     return &this->v_cameras;
+}
+
+std::vector<t_light *> *t_scene::get_lights() {
+    return &this->v_lights;
 }
 }

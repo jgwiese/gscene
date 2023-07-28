@@ -10,27 +10,41 @@
 namespace scene {
     class t_scene_object {
     public:
-        //t_scene_object(std::vector<unsigned int> *v_mesh_ids, std::vector<unsigned int> *v_material_ids);
         t_scene_object(t_object *p_object);
-        glm::vec3 position;
-        glm::vec3 rotation;
-        glm::vec3 scaling;
-        glm::mat4 *get_transformation();
-        void translate(glm::vec3 translation);
-        void rotate(float angle, glm::vec3 axis);
-        void scale(glm::vec3 values);
+        void translate_model(glm::vec3 translation);
+        void rotate_model(float angle, glm::vec3 axis);
+        void scale_model(glm::vec3 values);
+        glm::mat4 *get_transformation_model();
+    
+    /*
+        void translate_world(glm::vec3 translation);
+        void rotate_world(float angle, glm::vec3 axis);
+        void scale_world(glm::vec3 values);
+        glm::mat4 *get_transformation_world();
+    */
+
+        bool is_hidden();
         void set_node(t_scene_node *p_scene_node);
         t_scene_node *get_node();
         t_object *get_object();
         std::vector<std::tuple<t_mesh *, assets::t_material *>> *get_mesh_material();
-        bool hidden;
-
-    private:
-        t_scene_node *p_node;
-        t_object *p_object;
+        glm::vec3 *get_position_model();
 
     protected:
-        glm::mat4 transformation;
+        bool hidden;
+        t_scene_node *p_node;
+        t_object *p_object;
+        glm::vec3 position_model;
+        glm::vec3 rotation_model;
+        glm::vec3 scaling_model;
+        glm::mat4 transformation_model;
+        
+    /*
+        glm::vec3 position_world;
+        glm::vec3 rotation_world;
+        glm::vec3 scaling_world;
+        glm::mat4 transformation_world;
+    */
     };
 }
 

@@ -1,7 +1,7 @@
 #ifndef SCENE_LIGHT_H
 #define SCENE_LIGHT_H
 
-#include "../include/scene_object.h"
+#include "scene_object.h"
 #include <gassets/gassets.h>
 
 

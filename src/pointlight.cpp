@@ -2,7 +2,7 @@
 
 
 namespace scene {
-t_pointlight::t_pointlight() : t_light(NULL) {
+t_pointlight::t_pointlight(t_object *p_object) : t_light(p_object) {
 
 }
 
