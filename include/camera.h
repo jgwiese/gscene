@@ -10,7 +10,6 @@
 namespace scene {
     class t_camera: public t_scene_object {
     public:
-        glm::vec3 direction, up;
         t_camera(std::string name, unsigned int width, unsigned int height, t_object *p_object);
         std::string get_name();
         int get_width();
@@ -20,8 +19,11 @@ namespace scene {
         glm::mat4 *get_transformation_view();
         glm::mat4 *get_transformation_projection();
         t_image_sensor *get_image_sensor();
+        glm::vec3 *get_direction();
+        glm::vec3 *get_up();
 
     private:
+        glm::vec3 direction, up;
         std::string name;
         glm::mat4 intrinsics, extrinsics, projection, view;
         t_image_sensor *p_image_sensor;

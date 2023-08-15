@@ -1,5 +1,7 @@
 #include "../include/scene_object.h"
 #include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtx/string_cast.hpp>
+
 
 namespace scene {
     t_scene_object::t_scene_object(t_object *p_object) {
@@ -9,6 +11,17 @@ namespace scene {
         this->scaling_model = glm::vec3(1.0);
         this->position_model = glm::vec3(0.0);
         this->rotation_model = glm::vec3(0.0);
+
+        // center vertices
+        if (p_object != NULL) {
+            glm::vec3 center = p_object->get_center();
+            p_object->translate(center);
+            this->translate_model(center);
+        }
+    }
+
+    t_scene_object::~t_scene_object() {
+
     }
 
     glm::mat4 *t_scene_object::get_transformation_model() {
@@ -33,31 +46,9 @@ namespace scene {
     void t_scene_object::scale_model(glm::vec3 values) {
         this->scaling_model = values;
     }
-
-/*
-    glm::mat4 *t_scene_object::get_transformation_world() {
-        glm::mat4 scaling = glm::scale(glm::mat4(1.0), this->scaling_world);
-        glm::mat4 translation = glm::translate(glm::mat4(1.0), this->position_world);
-        glm::mat4 rotation = glm::mat4(1.0);
-        rotation = glm::rotate(rotation, glm::radians(this->rotation_world.x), glm::vec3(1.0, 0.0, 0.0));
-        rotation = glm::rotate(rotation, glm::radians(this->rotation_world.y), glm::vec3(0.0, 1.0, 0.0));
-        rotation = glm::rotate(rotation, glm::radians(this->rotation_world.z), glm::vec3(0.0, 0.0, 1.0));
-        this->transformation_world = translation * scaling * rotation;
-        return &this->transformation_world;
+    void t_scene_object::set_hidden(bool value) {
+        this->hidden = value;
     }
-
-    void t_scene_object::translate_world(glm::vec3 translation) {
-        this->position_world += translation;
-    }
-
-    void t_scene_object::rotate_world(float angle, glm::vec3 axis) {
-        this->rotation_world += angle * axis;
-    }
-
-    void t_scene_object::scale_world(glm::vec3 values) {
-        this->scaling_world = values;
-    }
-*/
 
     bool t_scene_object::is_hidden() {
         return this->hidden;

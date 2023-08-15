@@ -6,22 +6,9 @@
 namespace scene {
 t_scene::t_scene() {
     this->p_root = new t_scene_node(NULL);
-    this->p_resource_manager = new t_resource_manager();
 }
 
-t_camera *t_scene::add_camera(t_scene_object *p_parent, t_camera *p_camera) {
-    this->add_scene_object(p_parent, p_camera);
-    this->v_cameras.push_back(p_camera);
-    return p_camera;
-}
-
-t_light *t_scene::add_light(t_scene_object *p_parent, t_light *p_light) {
-    this->add_scene_object(p_parent, p_light);
-    this->v_lights.push_back(p_light);
-    return p_light;
-}
-
-t_scene_object *t_scene::add_scene_object(t_scene_object *p_parent, t_scene_object *p_scene_object) {
+void t_scene::add_scene_object(t_scene_object *p_parent, t_scene_object *p_scene_object) {
     t_scene_node *p_child = new t_scene_node(p_scene_object);
     p_scene_object->set_node(p_child);
 
@@ -31,7 +18,6 @@ t_scene_object *t_scene::add_scene_object(t_scene_object *p_parent, t_scene_obje
     else {
         p_parent->get_node()->add_child(p_child);
     }
-    return p_scene_object;
 }
 
 std::vector<scene::t_scene_object *> *t_scene::add_scene_object(t_scene_object *p_parent, std::string path_obj) {
@@ -53,18 +39,9 @@ std::vector<scene::t_scene_object *> *t_scene::add_scene_object(t_scene_object *
         }
     }
     return result;
-
 }
 
 t_scene_node *t_scene::get_tree() {
     return this->p_root;
-}
-
-std::vector<t_camera *> *t_scene::get_cameras() {
-    return &this->v_cameras;
-}
-
-std::vector<t_light *> *t_scene::get_lights() {
-    return &this->v_lights;
 }
 }

@@ -8,8 +8,13 @@
 namespace scene {
 class t_light : public t_scene_object {
 public:
-    t_light(t_object *p_object);
-    ~t_light();
+    t_light(t_object *p_object, glm::vec3 color);
+    virtual ~t_light();
+    glm::vec3 *get_color();
+    void set_color(glm::vec3 color);
+
+protected:
+    glm::vec3 color;
 };
 }
 

@@ -45,5 +45,11 @@ namespace scene {
     glm::mat4 *t_camera::get_transformation_projection() {
         return &this->projection;
     }
-}
 
+    glm::vec3 *t_camera::get_direction() {
+        return &this->direction;
+    }
+    glm::vec3 *t_camera::get_up() {
+        return &this->up;
+    }
+}
