@@ -23,6 +23,7 @@ namespace scene {
         t_object *get_object();
         std::vector<std::tuple<t_mesh *, assets::t_material *>> *get_mesh_material();
         glm::vec3 *get_position_model();
+        glm::vec3 get_position_world();
 
     protected:
         // TODO use std::string name as attribute - useful for shaders as well.

@@ -10,8 +10,10 @@ namespace scene {
         this->direction = glm::vec3(0.0, 0.0, -1.0);
         this->up = glm::vec3(0.0, 1.0, 0.0);
         this->p_image_sensor = new t_image_sensor(width, height, 4); // TODO: how to make this general for the amounts of channels?
+        this->near = 0.1;
+        this->far = 100.0;
         this->view = glm::mat4(1.0);
-        this->projection = glm::perspective(glm::radians(45.0f), (float) width / height, 0.1f, 100.0f);
+        this->projection = glm::perspective(glm::radians(45.0f), (float) width / height, this->near, this->far);
     }
 
     t_image_sensor *t_camera::get_image_sensor() {
@@ -51,5 +53,11 @@ namespace scene {
     }
     glm::vec3 *t_camera::get_up() {
         return &this->up;
+    }
+    float t_camera::get_near() {
+        return this->near;
+    }
+    float t_camera::get_far() {
+        return this->far;
     }
 }

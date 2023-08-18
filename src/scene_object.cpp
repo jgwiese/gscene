@@ -73,5 +73,19 @@ namespace scene {
     glm::vec3 *t_scene_object::get_position_model() {
         return &this->position_model;
     }
+
+    glm::vec3 t_scene_object::get_position_world() {
+        // figure out global transformation
+        scene::t_scene_node *parent = this->get_node()->get_parent();
+        glm::mat4 transformation = *this->get_transformation_model();
+        while (parent != NULL) {
+            if (parent->get_data() != NULL) {
+                transformation = *parent->get_data()->get_transformation_model() * transformation;
+            }
+            parent = parent->get_parent();
+        }
+        glm::vec3 v = glm::vec3(transformation * glm::vec4(*this->get_position_model(), 1.0));
+        return v;
+    }
 }
 

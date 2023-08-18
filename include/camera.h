@@ -21,10 +21,13 @@ namespace scene {
         t_image_sensor *get_image_sensor();
         glm::vec3 *get_direction();
         glm::vec3 *get_up();
+        float get_near();
+        float get_far();
 
     private:
         glm::vec3 direction, up;
         std::string name;
+        float near, far;
         glm::mat4 intrinsics, extrinsics, projection, view;
         t_image_sensor *p_image_sensor;
     };
