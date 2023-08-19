@@ -20,6 +20,7 @@ namespace scene {
         glm::mat4 *get_transformation_projection();
         t_image_sensor *get_image_sensor();
         glm::vec3 *get_direction();
+        void set_direction(glm::vec3 direction);
         glm::vec3 *get_up();
         float get_near();
         float get_far();

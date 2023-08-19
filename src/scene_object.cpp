@@ -14,8 +14,7 @@ namespace scene {
 
         // center vertices
         if (p_object != NULL) {
-            glm::vec3 center = p_object->get_center();
-            p_object->translate(center);
+            glm::vec3 center = p_object->center();
             this->translate_model(center);
         }
     }

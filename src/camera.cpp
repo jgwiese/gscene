@@ -7,7 +7,7 @@ namespace scene {
     t_camera::t_camera(std::string name, unsigned int width, unsigned int height, t_object *p_object) : t_scene_object(p_object) {
         this->name = name;
         // TODO implement intrinsics and extrinsics mechanics
-        this->direction = glm::vec3(0.0, 0.0, -1.0);
+        this->set_direction(glm::vec3(0.0, 0.0, -1.0));
         this->up = glm::vec3(0.0, 1.0, 0.0);
         this->p_image_sensor = new t_image_sensor(width, height, 4); // TODO: how to make this general for the amounts of channels?
         this->near = 0.1;
@@ -51,6 +51,11 @@ namespace scene {
     glm::vec3 *t_camera::get_direction() {
         return &this->direction;
     }
+    
+    void t_camera::set_direction(glm::vec3 direction) {
+        this->direction = glm::normalize(direction);
+    }
+
     glm::vec3 *t_camera::get_up() {
         return &this->up;
     }
