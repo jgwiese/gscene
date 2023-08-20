@@ -25,7 +25,6 @@ std::vector<scene::t_scene_object *> *t_scene::add_scene_object(t_scene_object *
     // load objects and parent all to first object
     t_import_obj *p_import_object = new t_import_obj(path_obj);
     for (unsigned int i = 0; i < p_import_object->get_objects()->size(); i++) {
-        std::cout << p_import_object->get_objects()->at(i)->get_name() << std::endl;
         t_scene_object *p_scene_object = new t_scene_object(p_import_object->get_objects()->at(i));
         result->push_back(p_scene_object);
         // TODO: not the best way to set the node of the scene object afterwards somehow?

@@ -15,6 +15,11 @@ namespace scene {
         this->view = glm::mat4(1.0);
         this->projection = glm::perspective(glm::radians(45.0f), (float) width / height, this->near, this->far);
     }
+    
+    void t_camera::rotate_model(float angle, glm::vec3 axis) {
+        this->rotation_model += angle * axis;
+        this->direction = glm::normalize(glm::mat3(glm::transpose(glm::inverse(*this->get_transformation_model()))) * this->direction_init);
+    }
 
     t_image_sensor *t_camera::get_image_sensor() {
         return this->p_image_sensor;
@@ -54,6 +59,7 @@ namespace scene {
     
     void t_camera::set_direction(glm::vec3 direction) {
         this->direction = glm::normalize(direction);
+        this->direction_init = this->direction;
     }
 
     glm::vec3 *t_camera::get_up() {

@@ -12,6 +12,7 @@ namespace scene {
     public:
         t_camera(std::string name, unsigned int width, unsigned int height, t_object *p_object);
         std::string get_name();
+        void rotate_model(float angle, glm::vec3 axis);
         int get_width();
         int get_height();
         int get_channels();
@@ -26,7 +27,7 @@ namespace scene {
         float get_far();
 
     private:
-        glm::vec3 direction, up;
+        glm::vec3 direction, direction_init, up;
         std::string name;
         float near, far;
         glm::mat4 intrinsics, extrinsics, projection, view;
