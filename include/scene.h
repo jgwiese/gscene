@@ -16,6 +16,7 @@ namespace scene {
         t_scene();
         ~t_scene();
         void add_scene_object(t_scene_object *p_parent, t_scene_object *p_scene_object);
+        t_scene_object *copy_scene_object(t_scene_object *p_scene_object, glm::vec3 position, glm::vec3 rotation, glm::vec3 scale);
         std::vector<scene::t_scene_object *> *add_scene_object(t_scene_object *p_parent, std::string path_obj);
         t_scene_node *get_tree();
 

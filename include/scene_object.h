@@ -13,6 +13,7 @@ namespace scene {
         t_scene_object(t_object *p_object);
         virtual ~t_scene_object();
         void translate_model(glm::vec3 translation);
+        void set_translation(glm::vec3 translation);
         void rotate_model(float angle, glm::vec3 axis);
         void scale_model(glm::vec3 values);
         glm::mat4 *get_transformation_model();

@@ -38,6 +38,10 @@ namespace scene {
         this->position_model += translation;
     }
 
+    void t_scene_object::set_translation(glm::vec3 translation) {
+        this->position_model = translation;
+    }
+
     void t_scene_object::rotate_model(float angle, glm::vec3 axis) {
         this->rotation_model += angle * axis;
     }
