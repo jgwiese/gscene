@@ -17,6 +17,7 @@ namespace scene {
         void rotate_model(float angle, glm::vec3 axis);
         void scale_model(glm::vec3 values);
         glm::mat4 *get_transformation_model();
+        glm::mat4 get_transformation_world();
         void set_hidden(bool value);
         bool is_hidden();
         void set_node(t_scene_node *p_scene_node);
@@ -25,6 +26,7 @@ namespace scene {
         std::vector<std::tuple<t_mesh *, assets::t_material *>> *get_mesh_material();
         glm::vec3 *get_position_model();
         glm::vec3 get_position_world();
+        std::string get_name();
 
     protected:
         // TODO use std::string name as attribute - useful for shaders as well.

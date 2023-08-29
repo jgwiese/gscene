@@ -80,6 +80,19 @@ namespace scene {
     glm::vec3 t_scene_object::get_position_world() {
         // figure out global transformation
         scene::t_scene_node *parent = this->get_node()->get_parent();
+        glm::vec3 position = *this->get_position_model();
+        while (parent != NULL) {
+            if (parent->get_data() != NULL) {
+                position = *parent->get_data()->get_position_model() + position;
+            }
+            parent = parent->get_parent();
+        }
+        return position;
+    }
+
+    glm::mat4 t_scene_object::get_transformation_world() {
+        // figure out global transformation
+        scene::t_scene_node *parent = this->get_node()->get_parent();
         glm::mat4 transformation = *this->get_transformation_model();
         while (parent != NULL) {
             if (parent->get_data() != NULL) {
@@ -87,8 +100,15 @@ namespace scene {
             }
             parent = parent->get_parent();
         }
-        glm::vec3 v = glm::vec3(transformation * glm::vec4(*this->get_position_model(), 1.0));
-        return v;
+        return transformation;
+    }
+
+    std::string t_scene_object::get_name() {
+        // TODO right now the copies of a scene object have the same name unfortunately.
+        if (this->p_object != NULL)
+            return this->p_object->get_name();
+        else
+            return "";
     }
 }
 

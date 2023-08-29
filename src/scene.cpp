@@ -18,6 +18,7 @@ void t_scene::add_scene_object(t_scene_object *p_parent, t_scene_object *p_scene
     else {
         p_parent->get_node()->add_child(p_child);
     }
+    std::cout << "added scene object: " << p_scene_object->get_name() << std::endl;
 }
 
 t_scene_object *t_scene::copy_scene_object(t_scene_object *p_scene_object, glm::vec3 position, glm::vec3 rotation, glm::vec3 scale) {
@@ -50,6 +51,7 @@ std::vector<scene::t_scene_object *> *t_scene::add_scene_object(t_scene_object *
         else {
             p_parent->get_node()->add_child(p_child);
         }
+        std::cout << "added scene object: " << p_scene_object->get_name() << std::endl;
     }
     return result;
 }

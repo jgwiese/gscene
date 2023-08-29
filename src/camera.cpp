@@ -4,8 +4,7 @@
 
 
 namespace scene {
-    t_camera::t_camera(std::string name, unsigned int width, unsigned int height, t_object *p_object) : t_scene_object(p_object) {
-        this->name = name;
+    t_camera::t_camera(unsigned int width, unsigned int height, t_object *p_object) : t_scene_object(p_object) {
         // TODO implement intrinsics and extrinsics mechanics
         this->set_direction(glm::vec3(0.0, 0.0, -1.0));
         this->up = glm::vec3(0.0, 1.0, 0.0);
@@ -23,10 +22,6 @@ namespace scene {
 
     t_image_sensor *t_camera::get_image_sensor() {
         return this->p_image_sensor;
-    }
-
-    std::string t_camera::get_name() {
-        return this->name;
     }
 
     int t_camera::get_width() {
