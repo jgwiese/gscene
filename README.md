@@ -12,3 +12,8 @@
 * meshes / renderobject separation done in renderer, since renderer specific
     * transformation of element-wise material to textures. then rendering supports textures only.
     * or voxel-wise instead of textures?
+
+# moving objects
+* objects should be moved explicitely.
+    * raytracer needs the transformed geometry.
+    * rasterizer needs just the transformation matrix for the shader.
